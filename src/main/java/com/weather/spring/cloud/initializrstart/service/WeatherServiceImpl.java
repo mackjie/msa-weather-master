@@ -25,6 +25,8 @@ public class WeatherServiceImpl implements WeatherService
 {
     private Logger logger = LoggerFactory.getLogger(WeatherServiceImpl.class);
 
+    private static final int ERROR_CODE = 200;
+
     @Value("${weather.url}")
     private String weatherUrl;
 
@@ -38,8 +40,8 @@ public class WeatherServiceImpl implements WeatherService
     public Weather getWeatherByCityId(String cityId)
     {
         /*splice the weather complete url*/
-        String WEATHER_URI_CITY_ID = weatherUrl+"citykey="+cityId;
-        Weather weather = getWeatherByUrl(WEATHER_URI_CITY_ID);
+        String weatherUrlCityId = weatherUrl+"citykey="+cityId;
+        Weather weather = getWeatherByUrl(weatherUrlCityId);
         return weather;
     }
 
@@ -48,10 +50,10 @@ public class WeatherServiceImpl implements WeatherService
     public Weather getWeatherByCityName(String cityName)
     {
         /*splice the weather complete url*/
-        String WEATHER_URI_CITY_NAME= weatherUrl+"city="+cityName;
+        String weatherUrlCityName= weatherUrl+"city="+cityName;
 
         /*get the conver type*/
-        Weather weather = getWeatherByUrl(WEATHER_URI_CITY_NAME);
+        Weather weather = getWeatherByUrl(weatherUrlCityName);
         return weather;
     }
 
@@ -77,7 +79,8 @@ public class WeatherServiceImpl implements WeatherService
             /*request the weather url*/
             ResponseEntity<String> resp = restTemplate.getForEntity(uri,String.class);
             /*judge the response error code and success is 200*/
-            if(resp.getStatusCodeValue() == 200){
+            if(ERROR_CODE == resp.getStatusCodeValue())
+            {
                 respBody = resp.getBody();
             }
             /*put the value into redis*/

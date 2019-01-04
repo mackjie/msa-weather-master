@@ -1,9 +1,7 @@
 package com.weather.spring.cloud.initializrstart.job;
 
 import com.weather.spring.cloud.initializrstart.service.CityDataService;
-import com.weather.spring.cloud.initializrstart.vo.City;
 import com.weather.spring.cloud.initializrstart.vo.CityList;
-import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class WeatherQuartzJob extends QuartzJobBean
     private CityDataService cityDataService;
 
     @Override
-    protected void executeInternal(org.quartz.JobExecutionContext context) throws JobExecutionException
+    protected void executeInternal(org.quartz.JobExecutionContext context)
     {
        logger.info("This is a quartz job to refresh the weather Starting");
 
@@ -33,12 +31,12 @@ public class WeatherQuartzJob extends QuartzJobBean
        if(list == null ){
            return;
        }
-       for(City city : list.getCityList()){
-           /* sync data the city weather*/
-           cityDataService.citySyncDataByCityId(city.getCityId());
-       }
+        //for(City city : list.getCityList()){
 
+        //sync data the city weather
 
-       logger.info("This is a quartz job to refresh the weather Ending");
+        //cityDataService.citySyncDataByCityId(city.getCityId()); }
+
+        logger.info("This is a quartz job to refresh the weather Ending");
     }
 }
