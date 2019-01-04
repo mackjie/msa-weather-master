@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${report.title}">气象数据</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+</head>
+<div>
+    <div class="container">
+        <div class="row">
+            <select class="custom-select" id="selectedCityId" >
+                <option th:each="city :${report.cityList}" th:text="${city.cityDistrict}" th:value="${city.cityId}"  th:selected="${report.cityId eq city.cityId}"></option>
+            </select>
+        </div>
+
+        <div class="row" >
+            <div th:each="forecast :${weather.data.forecast}">
+                <div class="card  border-info">
+                    <div class="card-body">
+                        <p class="card-text text-info"><span>日期:</span><span th:text="${forecast.date}">日期:</span></p>
+                        <p class="card-text text-info"><span>类型:</span><span th:text="${forecast.type}">类型:</span></p>
+                        <p class="card-text text-info"><span>高溫:</span><span th:text="${forecast.high}">高溫:</span></p>
+                        <p class="card-text text-info"><span>低温:</span><span th:text="${forecast.low}">低温:</span></p>
+                        <p class="card-text text-info"><span>风力:</span><span th:text="${forecast.fengli}">风力:</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="text-info">><span>温馨提示：</span><span th:text="${weather.data.ganmao}">温馨提示:</span></p>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/report.js}"></script>
+</body>
+</html>
