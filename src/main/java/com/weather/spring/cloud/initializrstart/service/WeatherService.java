@@ -25,4 +25,5 @@ public interface WeatherService
      * @return
      */
     Weather getWeatherByCityName(String cityName);
+
 }

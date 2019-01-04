@@ -38,7 +38,7 @@ public class WeatherServiceImpl implements WeatherService
     public Weather getWeatherByCityId(String cityId)
     {
         /*splice the weather complete url*/
-        String WEATHER_URI_CITY_ID = weatherUrl+"cityKey="+cityId;
+        String WEATHER_URI_CITY_ID = weatherUrl+"citykey="+cityId;
         Weather weather = getWeatherByUrl(WEATHER_URI_CITY_ID);
         return weather;
     }

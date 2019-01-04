@@ -14,6 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WeatherSyncJobBuild
 {
+    /**
+     * Automatic synchronized city`s weather data  1800 seconds every time
+     */
+    private static final int SYNC_TIME = 3600*2;
+
     @Bean
     public JobDetail weatherSyncJobDetail(){
         /*create the jobDetail*/
@@ -23,7 +28,7 @@ public class WeatherSyncJobBuild
 
     @Bean
     public Trigger weatherSyncTrigger(){
-        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(2).repeatForever();
+        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(SYNC_TIME).repeatForever();
         /*create trigger*/
        return TriggerBuilder.newTrigger().forJob(weatherSyncJobDetail()).withIdentity("weatherSyncTrigger").withSchedule(scheduleBuilder).build();
     }
