@@ -1,5 +1,7 @@
 package com.weather.spring.cloud.initializrstart.vo;
 
+import org.springframework.util.StringUtils;
+
 import java.util.List;
 
 /**
@@ -151,10 +153,16 @@ public class Weather
             }
             public String getFl()
             {
+                if(!StringUtils.isEmpty(fl) && fl.contains("CDATA")){
+                    fl = fl.split("A\\[")[1].split("\\]\\]")[0];
+                }
                 return fl;
             }
             public void setFl(String fl)
             {
+                if(!StringUtils.isEmpty(fl) && fl.contains("CDATA")){
+                    fl = fl.split("A\\[")[1].split("\\]\\]")[0];
+                }
                 this.fl = fl;
             }
             public String getType()
@@ -204,10 +212,16 @@ public class Weather
             }
             public String getFengli()
             {
+                if(!StringUtils.isEmpty(fengli) && fengli.contains("CDATA")){
+                    fengli = fengli.split("A\\[")[1].split("\\]\\]")[0];
+                }
                 return fengli;
             }
             public void setFengli(String fengli)
             {
+                if(!StringUtils.isEmpty(fengli) && fengli.contains("CDATA")){
+                    fengli = fengli.split("A\\[")[1].split("\\]\\]")[0];
+                }
                 this.fengli = fengli;
             }
             public String getLow()
