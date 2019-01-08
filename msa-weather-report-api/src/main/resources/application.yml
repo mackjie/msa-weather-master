@@ -1,0 +1,8 @@
+
+server:
+  port: 10006
+weather:
+  url: http://wthrcdn.etouch.cn/weather_mini?
+spring:
+  thymeleaf:
+    cache: false

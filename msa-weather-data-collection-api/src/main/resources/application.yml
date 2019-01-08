@@ -1,0 +1,17 @@
+
+server:
+  port: 10004
+weather:
+  url: http://wthrcdn.etouch.cn/weather_mini?
+spring:
+# REDIS (RedisProperties)
+# Redis数据库索引（默认为0）
+  redis:
+    database: 1
+# Redis服务器地址
+    host: 192.168.1.139
+# Redis服务器连接端口
+    port: 6379
+# Redis服务器连接密码（默认为空）
+    password:
+    timeout: 1800s

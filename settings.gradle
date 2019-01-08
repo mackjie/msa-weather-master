@@ -1,1 +1,9 @@
-rootProject.name = 'initializr-start'
+rootProject.name = 'msa-weather-master'
+include ':msa-weather-city-collection-api',':msa-weather-data-collection-api',':msa-weather-data-server-api',':msa-weather-eureka-server-api',':msa-weather-report-api'
+project(':msa-weather-city-collection-api').projectDir = new File(settingsDir, '/msa-weather-city-collection-api')
+project(':msa-weather-data-collection-api').projectDir = new File(settingsDir, '/msa-weather-data-collection-api')
+project(':msa-weather-data-server-api').projectDir = new File(settingsDir, '/msa-weather-data-server-api')
+project(':msa-weather-eureka-server-api').projectDir = new File(settingsDir, '/msa-weather-eureka-server-api')
+project(':msa-weather-report-api').projectDir = new File(settingsDir, '/msa-weather-report-api')
+
+

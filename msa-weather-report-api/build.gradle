@@ -27,9 +27,8 @@ repositories {
 
 
 dependencies {
-	compile project(':msa-weather-city-collection-api')
-	compile project(':msa-weather-data-collection-api')
-	compile project(':msa-weather-data-server-api')
-	compile project(':msa-weather-eureka-server-api')
-	compile project(':msa-weather-report-api')
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.1.RELEASE'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
