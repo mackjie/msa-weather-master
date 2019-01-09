@@ -32,6 +32,7 @@ dependencies {
 	compile ('org.apache.httpcomponents:httpclient:4.5.6')
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.1.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '2.0.2.RELEASE'
     // https://mvnrepository.com/artifact/org.quartz-scheduler/quartz
     compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
