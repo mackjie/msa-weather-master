@@ -15,3 +15,12 @@ spring:
 # Redis服务器连接密码（默认为空）
     password:
     timeout: 1800s
+  application:
+    name: msa-weather-data-collection-api
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
