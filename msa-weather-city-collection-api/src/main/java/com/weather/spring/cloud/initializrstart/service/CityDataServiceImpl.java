@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 
 /**
  * @program: initializr-start
- * @description: This is a all city data APi implment CityDataService
+ * @description: This is a all city data APi implement CityDataService
  * @author: W.HL
  * @create: 2019-01-04 10:49
  **/
@@ -33,6 +33,7 @@ public class CityDataServiceImpl implements  CityDataService
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
     @Autowired
     private RestTemplate restTemplate;
     /**

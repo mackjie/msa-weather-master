@@ -11,7 +11,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   freemarker:
-    template-loader-path: classpath:/templates/
+    # template-loader-path: classpath:/templates/
     prefer-file-system-access: false
   application:
     name: msa-weather-eureka-server-api
