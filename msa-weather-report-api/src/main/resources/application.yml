@@ -3,6 +3,8 @@ server:
   port: 10006
 weather:
   url: http://wthrcdn.etouch.cn/weather_mini?
+city:
+  name: msa-weather-city-collection-api
 spring:
   thymeleaf:
     cache: false
@@ -15,4 +17,10 @@ eureka:
   instance:
     ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic

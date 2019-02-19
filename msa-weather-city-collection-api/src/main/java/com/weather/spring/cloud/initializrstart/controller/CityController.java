@@ -1,7 +1,10 @@
 package com.weather.spring.cloud.initializrstart.controller;
 
 import com.weather.spring.cloud.initializrstart.service.CityDataService;
+import com.weather.spring.cloud.initializrstart.vo.City;
 import com.weather.spring.cloud.initializrstart.vo.CityList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CityController
 {
+    private static final Logger logger = LoggerFactory.getLogger(CityController.class);
+
     @Autowired
     private CityDataService cityDataService;
 
@@ -36,5 +41,11 @@ public class CityController
     @RequestMapping("/syncCityInfo/{cityId}")
     public void syncCityInfoByCityId(@PathVariable("cityId") String cityId){
         cityDataService.citySyncDataByCityId(cityId);
+    }
+
+    @RequestMapping("/test")
+    public CityList getTest(City city){
+        logger.info("当前参数为：{}",city);
+        return cityDataService.getAllCityData();
     }
 }

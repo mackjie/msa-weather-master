@@ -3,6 +3,7 @@ package com.weather.spring.cloud.initializrstart.service;
 import com.weather.spring.cloud.initializrstart.vo.City;
 import com.weather.spring.cloud.initializrstart.vo.CityList;
 import com.weather.spring.cloud.initializrstart.vo.Weather;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ import java.util.List;
 @Service
 public class WeatherReportServiceImpl implements WeatherReportService
 {
+    @Autowired
+    private CityClient cityClient;
+
     /**
      * get All City list
      *
@@ -25,17 +29,7 @@ public class WeatherReportServiceImpl implements WeatherReportService
     @Override
     public CityList getAllCityData()
     {
-        /*TODO get the all city list from msa-weather-city-collection-aip*/
-        CityList cityList = new CityList();
-        List<City> list_t = new ArrayList<>();
-        for (int i=0;i<5;i++){
-            /*init city list*/
-            City city = new City();
-            city.setCityId((101010200+i)+"");
-            city.setCityName("海淀区");
-            list_t.add(city);
-        }
-        cityList.setCityList(list_t);
+        CityList cityList = cityClient.getAllCityData();
         return cityList;
     }
     /**
