@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <select class="custom-select" id="selectedCityId" >
-                <option th:each="city :${report.cityList}" th:text="${city.cityName}" th:value="${city.cityId}"  th:selected="${report.cityId eq city.cityId}"></option>
+                <option th:each="city :${report.cityList}" th:text="${city.cityDistrict}" th:value="${city.cityId}"  th:selected="${report.cityId eq city.cityId}"></option>
             </select>
         </div>
 

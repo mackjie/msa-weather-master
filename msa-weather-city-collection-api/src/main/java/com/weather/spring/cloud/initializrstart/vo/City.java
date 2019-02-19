@@ -71,4 +71,10 @@ public class City
     {
         this.cityName = cityName;
     }
+
+    @Override
+    public String toString()
+    {
+        return "City{" + "cityId='" + cityId + '\'' + ", cityDistrict='" + cityDistrict + '\'' + ", cityDesc='" + cityDesc + '\'' + ", cityName='" + cityName + '\'' + '}';
+    }
 }

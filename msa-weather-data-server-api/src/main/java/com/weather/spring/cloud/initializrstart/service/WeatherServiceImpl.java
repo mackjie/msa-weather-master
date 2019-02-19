@@ -70,7 +70,6 @@ public class WeatherServiceImpl implements WeatherService
         }else{
             throw new RuntimeException("The weather does not join in redis and return null");
         }
-
         Weather weather = null;
         try
         {

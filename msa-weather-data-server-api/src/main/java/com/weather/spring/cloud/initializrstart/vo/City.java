@@ -1,5 +1,6 @@
 package com.weather.spring.cloud.initializrstart.vo;
 
+
 /**
  * @program: initializr-start
  * @description: This is City data Pojo
@@ -21,7 +22,7 @@ public class City
     /**
      * city district English name
      */
-    private String cityDesc;
+   private String cityDesc;
 
     /**
      * city name
@@ -59,5 +60,11 @@ public class City
     public void setCityName(String cityName)
     {
         this.cityName = cityName;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "City{" + "cityId='" + cityId + '\'' + ", cityDistrict='" + cityDistrict + '\'' + ", cityDesc='" + cityDesc + '\'' + ", cityName='" + cityName + '\'' + '}';
     }
 }

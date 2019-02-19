@@ -1,5 +1,6 @@
 package com.weather.spring.cloud.initializrstart.job;
 
+import com.weather.spring.cloud.initializrstart.service.CityClientService;
 import com.weather.spring.cloud.initializrstart.service.WeatherDataCollectionService;
 import com.weather.spring.cloud.initializrstart.vo.City;
 import com.weather.spring.cloud.initializrstart.vo.CityList;
@@ -24,6 +25,8 @@ public class WeatherQuartzJob extends QuartzJobBean
 
     @Autowired
     private WeatherDataCollectionService weatherDataCollectionService;
+    @Autowired
+    private CityClientService cityClientService;
 
     @Override
     protected void executeInternal(org.quartz.JobExecutionContext context)
@@ -31,13 +34,7 @@ public class WeatherQuartzJob extends QuartzJobBean
        logger.info("This is a quartz job to refresh the weather Starting");
 
         /*get all city data*/
-        CityList cityList = new CityList();
-        /*TODO get the all city info from micro-weather-city-data-collection-api*/
-        List<City> list = new ArrayList<>();
-        City city_t = new City();
-        city_t.setCityId("101010200");
-        list.add(city_t);
-        cityList.setCityList(list);
+        CityList cityList = cityClientService.getAllCityData();
 
         for(City city : cityList.getCityList()){
             //sync data the city weather

@@ -24,3 +24,10 @@ eureka:
   instance:
     ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 50000
+        readTimeout: 50000
+        loggerLevel: basic

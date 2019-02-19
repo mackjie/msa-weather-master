@@ -6,8 +6,8 @@ import com.weather.spring.cloud.initializrstart.vo.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @program: msa-weather-report-api
@@ -19,8 +19,9 @@ import java.util.List;
 public class WeatherReportServiceImpl implements WeatherReportService
 {
     @Autowired
-    private CityClient cityClient;
-
+    private CityClientService cityClientService;
+    @Autowired
+    private WeatherClientService weatherClientService;
     /**
      * get All City list
      *
@@ -29,7 +30,10 @@ public class WeatherReportServiceImpl implements WeatherReportService
     @Override
     public CityList getAllCityData()
     {
-        CityList cityList = cityClient.getAllCityData();
+        CityList cityList = cityClientService.getAllCityData();
+        City city = new City();
+        city.setCityName("asdfasdf");
+        CityList cityList_t = cityClientService.getTest(city);
         return cityList;
     }
     /**
@@ -41,24 +45,7 @@ public class WeatherReportServiceImpl implements WeatherReportService
     @Override
     public Weather getWeatherByCityId(String cityId)
     {
-        /*TODO get the weather info by city id from msa-weather-server-api*/
-        Weather weather = new Weather();
-        Weather.DataBean data = new Weather.DataBean();
-        data.setCity("海淀区");
-        data.setGanmao("天气转凉，请注意保暖");
-        data.setWendu("2°C");
-
-        List<Weather.DataBean.ForecastBean> forecastBeans = new ArrayList<>();
-        for (int i=0;i<4;i++){
-            Weather.DataBean.ForecastBean forecastBean = new Weather.DataBean.ForecastBean();
-            forecastBean.setFengli("三级风力");
-            forecastBean.setFengxiang("西南风");
-            forecastBean.setHigh("5°C");
-            forecastBean.setLow("-2°C");
-            forecastBeans.add(forecastBean);
-        }
-        data.setForecast(forecastBeans);
-        weather.setData(data);
+        Weather weather = weatherClientService.getWeatherByCityId(cityId);
         return weather;
     }
     /**
@@ -70,7 +57,7 @@ public class WeatherReportServiceImpl implements WeatherReportService
     @Override
     public Weather getWeatherByCityName(String cityName)
     {
-        /*TODO get the weather info by city name from msa-weather-server-api*/
-        return null;
+        Weather weather = weatherClientService.getWeatherByCityName(cityName);
+        return weather;
     }
 }

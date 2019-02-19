@@ -4,6 +4,7 @@ import com.weather.spring.cloud.initializrstart.vo.City;
 import com.weather.spring.cloud.initializrstart.vo.CityList;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  **/
 
 @FeignClient(name="${city.name}")
-public interface CityClient
+public interface CityClientService
 {
 
     /**
@@ -37,6 +38,6 @@ public interface CityClient
      * @param city
      * @return CityList
      */
-    @RequestMapping(method = RequestMethod.GET,value = "/city/api/test")
-    CityList getTest(City city);
+    @RequestMapping(method = RequestMethod.POST,value = "/city/api/test",consumes = "application/json")
+    CityList getTest(@RequestBody City city);
 }

@@ -3,6 +3,7 @@ server:
   port: 10006
 weather:
   url: http://wthrcdn.etouch.cn/weather_mini?
+  name: msa-weather-data-server-api
 city:
   name: msa-weather-city-collection-api
 spring:
@@ -21,6 +22,8 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 5000
-        readTimeout: 5000
+        connectTimeout: 50000
+        readTimeout: 50000
         loggerLevel: basic
+  httpclient:
+    enabled: true
