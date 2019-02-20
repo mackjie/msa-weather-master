@@ -41,4 +41,8 @@ dependencies {
 
 	runtimeOnly('mysql:mysql-connector-java')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-ribbon
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.0.2.RELEASE'
+
 }

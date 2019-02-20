@@ -39,4 +39,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.0.2.RELEASE'
 
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-ribbon
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.0.2.RELEASE'
+
+
 }

@@ -31,12 +31,11 @@ dependencies {
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.7'
 	// https://mvnrepository.com/artifact/com.netflix.feign/feign-httpclient
 	compile group: 'com.netflix.feign', name: 'feign-httpclient', version: '8.18.0'
-	// https://mvnrepository.com/artifact/org.projectlombok/lombok
-	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
 
 	compile project(':msa-weather-city-collection-api')
 	compile project(':msa-weather-data-collection-api')
 	compile project(':msa-weather-data-server-api')
 	compile project(':msa-weather-eureka-server-api')
 	compile project(':msa-weather-report-api')
+	compile project(':msa-weather-gateway-api')
 }

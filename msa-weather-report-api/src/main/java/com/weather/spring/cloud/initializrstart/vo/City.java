@@ -1,5 +1,8 @@
 package com.weather.spring.cloud.initializrstart.vo;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @program: initializr-start
@@ -7,58 +10,26 @@ package com.weather.spring.cloud.initializrstart.vo;
  * @author: W.HL
  * @create: 2019-01-04 10:20
  **/
-public class City
+public @Data class City
 {
     /**
      * city id
      */
-    private String cityId;
+    @Setter @Getter private String cityId;
 
     /**
      * city district ege:海定区
      */
-    private String cityDistrict;
+    @Setter @Getter private String cityDistrict;
 
     /**
      * city district English name
      */
-    private String cityDesc;
+    @Setter @Getter private String cityDesc;
 
     /**
      * city name
      */
-    private String cityName;
+   @Setter @Getter private String cityName;
 
-    public String getCityId()
-    {
-        return cityId;
-    }
-    public void setCityId(String cityId)
-    {
-        this.cityId = cityId;
-    }
-    public String getCityDistrict()
-    {
-        return cityDistrict;
-    }
-    public void setCityDistrict(String cityDistrict)
-    {
-        this.cityDistrict = cityDistrict;
-    }
-    public String getCityDesc()
-    {
-        return cityDesc;
-    }
-    public void setCityDesc(String cityDesc)
-    {
-        this.cityDesc = cityDesc;
-    }
-    public String getCityName()
-    {
-        return cityName;
-    }
-    public void setCityName(String cityName)
-    {
-        this.cityName = cityName;
-    }
 }
