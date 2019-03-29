@@ -31,6 +31,8 @@ dependencies {
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.7'
 	// https://mvnrepository.com/artifact/com.netflix.feign/feign-httpclient
 	compile group: 'com.netflix.feign', name: 'feign-httpclient', version: '8.18.0'
+	// https://mvnrepository.com/artifact/com.alibaba.fescar/fescar-core
+	compile group: 'com.alibaba.fescar', name: 'fescar-all', version: '0.2.2'
 
 	compile project(':msa-weather-city-collection-api')
 	compile project(':msa-weather-data-collection-api')
