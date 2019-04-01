@@ -1,5 +1,6 @@
 package com.weather.spring.cloud.initializrstart.design.mode.strategy;
 
+
 /**
  * @program: msa-weather-master
  * @description: This is common customer server and have no account
@@ -21,4 +22,6 @@ public class CommonCustomer implements StrategyService
     {
         return money;
     }
+
+
 }
