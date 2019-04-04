@@ -1,6 +1,5 @@
 package com.weather.spring.cloud.initializrstart.design.mode.proxy.staticproxy;
 
-import java.io.PrintStream;
 import java.util.Date;
 
 /**
