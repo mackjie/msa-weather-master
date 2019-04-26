@@ -8,7 +8,6 @@ import com.weather.spring.cloud.initializrstart.vo.Weather;
  * @author: W.HL
  * @create: 2019-01-03 16:52
  **/
-
 public interface WeatherService
 {
 
